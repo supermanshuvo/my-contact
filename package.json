@@ -4,7 +4,8 @@
   "description": "All the contact will store here and alternative for google contact",
   "main": "index.js",
   "scripts": {
-    "json:server": "json-server --watch Database/db.json"
+    "json:server": "json-server --watch Database/db.json",
+    "build:css":"tailwindcss src/style.css -o public/style.css"
   },
   "repository": {
     "type": "git",
