@@ -1,20 +1,49 @@
 {
     "users":[
         {
-            "firstName":"Superman",
-            "lastName": "Shuvo",
-            "email" : "supermanshuvo@gmail.com",
-            "mobileNumber":"01303316865",
-            "password":"12345",
+            "userFirstName":"Superman",
+            "userLastName": "Shuvo",
+            "userEmail" : "supermanshuvo@gmail.com",
+            "userPhoneNumber":"01000000000",
+            "userPassword":"12345",
             "id":1
         },
         {
-            "firstName":"Bat",
-            "lastName": "Man",
-            "email" : "batman@gmail.com",
-            "mobileNumber":"0165835586",
-            "password":"12345",
+            "userFirstName":"Bat",
+            "userLastName": "Man",
+            "userEmail" : "batman@gmail.com",
+            "userPhoneNumber":"01000000000",
+            "userPassword":"12345",
             "id":2
+        }
+    ],
+    "contacts":[
+        {
+            "contactFirstName":"Superman",
+            "contactLastName":"Shuvo",
+            "contactCompanyName": "VivaSoft Ltd",
+            "contactJobTitle":"Software Engineer",
+            "contactDepartment":"software",
+            "contactEmail":"shuvo@gmail.com",
+            "contactEmailLabel":"personal",
+            "contactPhoneNumber":"01000000000",
+            "contactPhoneNumberLabel":"persona",
+            "contactAddress" : "Dhaka/Bangladesh",
+            "contactBirthdayDate":"03/12/1995",
+            "contactEventDate":"01/10/2021",
+            "contactEventDateLabel":"",
+            "contactWebsite":"supermanshuvo.wordpress.com",
+            "contactWebsiteLabel":"",
+            "contactRelationship":"brother",
+            "contactRelationshipLabel":"",
+            "contactChat":"I am the best",
+            "contactChatLabel":"",
+            "contactInternetCall": "0001235585256",
+            "contactInternetCallLabel":"",
+            "contactCustomField":"something",
+            "contactCustomFieldLabel":"something label",
+            "contactNotes":"I am the best. You believe or not I don't care.",
+            "userId":1
         }
     ]
 }
