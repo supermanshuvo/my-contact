@@ -1,9 +1,7 @@
-
-
 function App() {
   return (
-    <div className="App">
-      <h1>Shuvo</h1>
+    <div className="md:container mx-auto">
+      <h1>Superman Shuvo</h1>
     </div>
   );
 }
