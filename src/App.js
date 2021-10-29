@@ -1,14 +1,14 @@
 import { BrowserRouter,Switch,Route } from 'react-router-dom';
 import Login from './components/Login';
-import Navbar from './components/Navbar'
+import NavBar from './components/NavBar'
 import Signup from './components/Signin';
 import Todo from './components/Todo';
 
 function App() {
   return (
-    <div className="Container">
+    <>
     <BrowserRouter>
-      <Navbar />
+      <NavBar />
       <Switch>
         <Route exact path="/">
           <Todo />
@@ -21,7 +21,7 @@ function App() {
         </Route>
       </Switch>
     </BrowserRouter>
-    </div>
+    </>
   );
 }
 
