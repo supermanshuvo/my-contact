@@ -19,28 +19,30 @@ let verifyUser = document.getElementById('verifyUser');
 let register =document.getElementById('register');
 let loginForm= document.getElementById('loginForm');
 
+// table
+let table = document.getElementById('table');
+let tableData = document.getElementById('tableData');
+
+
 function addData(uid,person){
-    console.log('I am in addData')
-    console.log(uid,person)
-    // firebase.firestore().collection("user-information").doc(uid).set({
-    //     firstName: person.firstName,
-    //     lastName: person.lastName,
-    //     email: person.email,
-    //     password: person.password,
-    //     number: person.number,
-    //     birthDay: person.birthDay,
-    //     address: person.address
-    // })
-    // .then(() => {
-    //     console.log("Document successfully written!");
-    // })
-    // .catch((error) => {
-    //     console.error("Error writing document: ", error);
-    // });
+   firebase.firestore().collection("user-information").doc(uid).set({
+        firstName: person.firstName,
+        lastName: person.lastName,
+        email: person.email,
+        number: person.number,
+        birthDay: person.birthDay,
+        address: person.address
+    })
+    .then(() => {
+        console.log("Document successfully written!");
+    })
+    .catch((error) => {
+        console.error("Error writing document: ", error);
+    });
 }
 
 function createUser(person){
-    console.log('Request Initiated')
+    // console.log('Request Initiated')
     firebase.auth().createUserWithEmailAndPassword(person.email, person.password)
         .then((userCredential)=>{
             let user = userCredential.user;
@@ -66,16 +68,69 @@ function submitRegister(){
         address: address.value
     }
     createUser(person);
-    // console.log('register save');
-    // console.log(fname.value,lname.value,registerEmail.value,registerPassword.value,phone.value,bodate.value,address.value);
     register.reset();
-    // console.log(fname.value)
 }
 function login(){
-    // console.log(emailLogin.value,passwordLogin.value);
+    table.className='table'
+    let email = emailLogin.value;
+    let password = passwordLogin.value;
+    firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+      let user = userCredential.user;
+      console.log(user)
+      console.log(user.uid)
+    let userInformationFromFirestore= firebase.firestore().collection("user-information").doc(user.uid);
+    userInformationFromFirestore.get().then((doc)=>{
+        if (doc.exists) {
+            // console.log("Document data:", doc.data());
+            // alert(doc.data())
+            let person = doc.data()
+            console.log(person.firstName,person.lastName,person.number,person.email,person.birthDay,person.address)
+            tableData.innerHTML = `<tr>
+                <td>
+                    ${person.firstName}
+                </td>
+                <td>
+                    ${person.lastName}
+                </td>
+                <td>
+                    ${person.number}
+                </td>
+                <td>
+                    ${person.email}
+                </td>
+                <td>
+                    ${person.birthDay}
+                </td>
+                <td>
+                    ${person.address}
+                </td>
+            </tr>
+            `
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch((error)=>{
+        console.log('Error getting document : ',error);
+    })
+    logout();
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorCode,errorMessage);
+  });
     loginForm.reset();
-    // console.log('login btn')
-    // console.log(emailLogin,passwordLogin)
+}
+function logout(){
+    firebase.auth().signOut().then(()=>{
+        console.log('Your are log out')
+    }).catch((error)=>{
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode,errorMessage);
+    })
 }
 function registerForm(){
     headerText.innerText='Register Now'
