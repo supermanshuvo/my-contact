@@ -1,29 +1,40 @@
 {
   "name": "my-contact",
-  "version": "0.0.1",
-  "description": "All the contact will store here and alternative for google contact",
-  "main": "index.js",
-  "scripts": {
-    "json:server": "json-server --watch Database/db.json",
-    "build:css":"tailwindcss src/style.css -o public/style.css"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/supermanshuvo/my-contact.git"
-  },
-  "keywords": [
-    "my",
-    "contact",
-    "my-contact"
-  ],
-  "author": "Superman Shuvo <shuvothesuperman@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/supermanshuvo/my-contact/issues"
-  },
-  "homepage": "https://github.com/supermanshuvo/my-contact#readme",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "json-server": "^0.16.3",
-    "tailwindcss": "^2.2.16"
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^1.1.5",
+    "tailwindcss": "^2.2.16",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build-css":"tailwindcss src/index.css -o public/style.css"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
